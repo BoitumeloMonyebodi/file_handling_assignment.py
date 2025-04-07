@@ -1,0 +1,31 @@
+Question 1
+def ask_for_filename():
+    # Ask user for the filename
+    filename = input("Please enter the filename you want to read: ")
+
+    try:
+        # Try to open and read the file
+        with open(filename, 'r') as file:
+            content = file.read()
+            print("File contents:")
+            print(content)
+
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' does not exist.")
+    except PermissionError:
+        print(f"Error: You don't have permission to read the file '{filename}'.")
+    except IOError:
+        print(f"Error: There was an issue reading the file '{filename}'.")
+
+Question 2
+def main():
+    # Ask the user for a filename and process it
+    ask_for_filename()
+
+    # Demonstrate file read and write with modification
+    input_file = "sample.txt"
+    output_file = "modified_sample.txt"
+    read_and_write_file(input_file, output_file)
+
+if __name__ == "__main__":
+    main()
